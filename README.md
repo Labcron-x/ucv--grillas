@@ -1,4 +1,4 @@
-📱💻 Grid Responsivo - Test de Usabilidad
+📱💻 Grid Responsivo - Test de Usabilidad de la UCV
 Este proyecto demuestra un sistema de grids responsivos utilizando CSS puro, con funcionalidades para cambiar entre diferentes layouts según el dispositivo y mostrar/ocultar elementos.
 
 🚀 Características principales
