@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Usabilidad - Grids Responsivos - ucv </title>
+    <link rel="stylesheet" href="styles/gap-ucv-min.css">
+    <style>
+        /* Estilos adicionales para mejorar la visualización */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .demo-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .item {
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .item:nth-child(even) {
+            background: #2980b9;
+        }
+        .controls {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #27ae60;
+        }
+        .device-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        @media (max-width: 767px) {
+            .device-indicator {
+                background: #3498db;
+                content: "Móvil";
+            }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .device-indicator {
+                background: #9b59b6;
+                content: "Tablet";
+            }
+        }
+        @media (min-width: 1024px) {
+            .device-indicator {
+                background: #2ecc71;
+                content: "PC";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="device-indicator" id="deviceIndicator" style="background-color: rgb(46, 204, 113);">PC (≥1024px)</div>
+    
+    <h1>Test de Usabilidad - Grids Responsivos</h1>
+    
+    <div class="controls">
+        <h2>Controles</h2>
+        <p>Cambia el tamaño de la ventana para ver el comportamiento responsive o usa estos botones:</p>
+        <button onclick="resizeWindow(400)">Vista Móvil (400px)</button>
+        <button onclick="resizeWindow(800)">Vista Tablet (800px)</button>
+        <button onclick="resizeWindow(1200)">Vista PC (1200px)</button>
+    </div>
+    
+    <!-- Sección 1: Grid Básico Responsivo -->
+    <div class="demo-section">
+        <h2>1. Grid Básico Responsivo</h2>
+        <p><strong>Comportamiento:</strong> 1 columna en móvil, 2 en tablet, 3 en PC</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+        </div>
+    </div>
+    
+    <!-- Sección 2: gap-display_pc vs gap-display_movil -->
+    <div class="demo-section">
+        <h2>2. gap-display_pc vs gap-display_movil</h2>
+        
+        <h3>gap-display_pc (block en móvil, flex en PC)</h3>
+        <div class="gap-display_pc">
+            <div class="item">Flex Item 1 (solo visible en PC)</div>
+            <div class="item">Flex Item 2 (solo visible en PC)</div>
+            <div class="item">Flex Item 3 (solo visible en PC)</div>
+        </div>
+        
+        <h3>gap-display_movil (flex en móvil, block en PC)</h3>
+        <div class="gap-display_movil">
+            <div class="item">Flex Item A (visible en móvil)</div>
+            <div class="item">Flex Item B (visible en móvil)</div>
+            <div class="item">Flex Item C (visible en móvil)</div>
+        </div>
+    </div>
+    
+    <!-- Sección 3: Mostrar/Ocultar elementos -->
+    <div class="demo-section">
+        <h2>3. Mostrar/Ocultar elementos</h2>
+        
+        <div class="show-mobile">
+            <div class="item">Este contenido solo se ve en MÓVIL</div>
+        </div>
+        
+        <div class="show-pc">
+            <div class="item">Este contenido solo se ve en PC</div>
+        </div>
+    </div>
+    
+    <!-- Sección 4: Grid con áreas específicas -->
+    <div class="demo-section">
+        <h2>4. Grid con áreas específicas</h2>
+        
+        <div class="grid grid-cols-[200px,1fr] gap-4">
+            <div class="item" style="grid-row: span 2">Sidebar (200px)</div>
+            <div class="item">Header</div>
+            <div class="item">Content</div>
+        </div>
+    </div>
+    
+    <!-- Sección 5: Grid con span -->
+    <div class="demo-section">
+        <h2>5. Grid con span</h2>
+        
+        <div class="grid grid-cols-3 gap-4">
+            <div class="item col-span-2">Ocupa 2 columnas</div>
+            <div class="item">Normal</div>
+            <div class="item">Normal</div>
+            <div class="item ">Ocupa 2 filas</div>
+            <div class="item">Normal</div>
+        </div>
+    </div>
+
+    <script>
+        // Actualizar indicador de dispositivo
+        function updateDeviceIndicator() {
+            const indicator = document.getElementById('deviceIndicator');
+            const width = window.innerWidth;
+            
+            if (width < 768) {
+                indicator.textContent = 'Móvil (<768px)';
+                indicator.style.backgroundColor = '#3498db';
+            } else if (width >= 768 && width < 1024) {
+                indicator.textContent = 'Tablet (≥768px)';
+                indicator.style.backgroundColor = '#9b59b6';
+            } else {
+                indicator.textContent = 'PC (≥1024px)';
+                indicator.style.backgroundColor = '#2ecc71';
+            }
+        }
+        
+        // Función para redimensionar la ventana (solo para demo)
+        function resizeWindow(width) {
+            window.resizeTo(width, window.innerHeight);
+            updateDeviceIndicator();
+        }
+        
+        // Inicializar y escuchar cambios de tamaño
+        updateDeviceIndicator();
+        window.addEventListener('resize', updateDeviceIndicator);
+    </script>
+
+</body></html>
