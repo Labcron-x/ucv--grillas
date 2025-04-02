@@ -17,7 +17,8 @@ HTML5 semántico
 
 CSS puro (sin preprocesadores)
 
-JavaScript mínimo para la interactividad
+JavaScript mínimo para la interactividad!
+
 
 📂 Estructura del proyecto
 Copy
@@ -30,6 +31,7 @@ Copy
 Clona el repositorio o descarga los archivos
 
 Abre index.html en tu navegador
+[reporte](https://github.com/user-attachments/assets/ee5b3a3c-7bdd-4a73-a309-981988b7100c)
 
 Interactúa con:
 
