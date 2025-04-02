@@ -1,0 +1,154 @@
+/* === Contenedor Grid === */
+.grid {
+  display: grid;
+}
+
+/* === Grid Template Columns === */
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.grid-cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.grid-cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.grid-cols-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+.grid-cols-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.grid-cols-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+/* Columnas personalizadas (ejemplo) */
+.grid-cols-none { grid-template-columns: none; }
+.grid-cols-[200px,1fr,300px] { grid-template-columns: 200px 1fr 300px; }
+
+/* === Grid Template Rows === */
+.grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+.grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+.grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+.grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+
+/* Filas personalizadas (ejemplo) */
+.grid-rows-none { grid-template-rows: none; }
+.grid-rows-[auto,1fr,auto] { grid-template-rows: auto 1fr auto; }
+
+/* === Gap (Espaciado entre celdas) === */
+.gap-0 { gap: 0; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-5 { gap: 1.25rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+.gap-10 { gap: 2.5rem; }
+
+/* Gap en columnas (column-gap) */
+.gap-x-1 { column-gap: 0.25rem; }
+.gap-x-2 { column-gap: 0.5rem; }
+
+/* Gap en filas (row-gap) */
+.gap-y-1 { row-gap: 0.25rem; }
+.gap-y-2 { row-gap: 0.5rem; }
+
+/* === Gap Responsivo (Móvil vs PC) === */
+.gap-movil {
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .gap-movil {
+    gap: 0 !important;
+  }
+}
+
+.gap-pc {
+  gap: 0;
+}
+
+@media (min-width: 1024px) {
+  .gap-pc {
+    gap: 1.5rem !important;
+  }
+}
+
+/* === Display Responsivo Flex/Block === */
+.gap-display_pc {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .gap-display_pc {
+    display: flex !important;
+    gap: 1.5rem;
+  }
+}
+
+.gap-display_movil {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .gap-display_movil {
+    display: block !important;
+    gap: 0 !important;
+  }
+}
+
+/* === Mostrar/Ocultar por Dispositivo === */
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+.show-pc {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .show-pc {
+    display: block !important;
+  }
+}
+
+/* === Colspan & Rowspan === */
+.col-auto { grid-column: auto; }
+.col-span-1 { grid-column: span 1 / span 1; }
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+.col-span-full { grid-column: 1 / -1; }
+
+.row-auto { grid-row: auto; }
+.row-span-1 { grid-row: span 1 / span 1; }
+.row-span-2 { grid-row: span 2 / span 2; }
+.row-span-3 { grid-row: span 3 / span 3; }
+.row-span-full { grid-row: 1 / -1; }
+
+/* === Alineación de Grid Items === */
+.justify-items-start { justify-items: start; }
+.justify-items-end { justify-items: end; }
+.justify-items-center { justify-items: center; }
+.justify-items-stretch { justify-items: stretch; }
+
+.align-items-start { align-items: start; }
+.align-items-end { align-items: end; }
+.align-items-center { align-items: center; }
+.align-items-stretch { align-items: stretch; }
+
+/* === Alineación del Grid en el Contenedor === */
+.justify-content-start { justify-content: start; }
+.justify-content-end { justify-content: end; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+
+.align-content-start { align-content: start; }
+.align-content-end { align-content: end; }
+.align-content-center { align-content: center; }
+.align-content-between { align-content: space-between; }
